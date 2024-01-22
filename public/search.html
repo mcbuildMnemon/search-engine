@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Google Search Results</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            font-size: 13px;
+            color: #000000;
+        }
+
+        h1 {
+            font-size: 20px;
+            color: #0000cc;
+        }
+
+        h2 {
+            font-size: 16px;
+            color: #0000cc;
+        }
+
+        p {
+            font-size: 15px;
+        }
+
+        a {
+            color: #0000cc;
+            text-decoration: none;
+        }
+
+        a:hover {
+            text-decoration: underline;
+        }
+
+        hr {
+            border: none;
+            border-top: 1px solid #ccc;
+            color: #333;
+            background-color: #333;
+        }
+
+        #header {
+            display: flex;
+            align-items: center;
+        }
+
+        #logo {
+            width: 150px;
+            /* Adjust as needed */
+            height: auto;
+            margin-right: 10px;
+        }
+
+        #header p {
+            margin: 0;
+        }
+
+        #numResults {
+            margin-left: 20px;
+            /* Adjust as needed */
+        }
+    </style>
+</head>
+
+<body>
+    <div id="header">
+        <img src="google.jpg" alt="Logo" id="logo">
+        <input id="searchBox" type="text" name="q">
+        <select id="numResults">
+            <option value="10">10 results</option>
+            <option value="20">30 results</option>
+            <option value="100">100 results</option>
+        </select>
+    </div>
+    <div id="search-results"></div>
+
+    <script>
+        const params = new URLSearchParams(window.location.search);
+        const term = params.get('q');
+        const numResultsDropdown = document.getElementById('numResults');
+        const searchBox = document.getElementById('searchBox');
+        searchBox.value = term;
+
+        function fetchResults() {
+            const numResults = numResultsDropdown.value || 10;
+            const page = params.get('page') || 1;
+
+            fetch(`http://localhost:4000/search?q=${searchBox.value}&numResults=${numResults}&page=${page}`)
+                .then(response => response.json())
+                .then(results => {
+                    document.getElementById('search-results').innerHTML = ''; // clear previous results
+                    results.forEach(result => {
+                        document.getElementById('search-results').innerHTML += `
+        <div>
+          <h2><a href="${result.url}">${result.title}</a></h2>
+          <p>${result.description}</p>
+          <p>Rank: ${result.rank}</p>
+        </div>
+      `;
+                    });
+                })
+                .catch(error => console.error('Error:', error));
+        }
+
+        searchBox.addEventListener('keypress', function (e) {
+            if (e.key === 'Enter') {
+                fetchResults();
+            }
+        });
+
+        numResultsDropdown.addEventListener('change', fetchResults);
+
+        // Fetch results when the page first loads
+        fetchResults();
+    </script>
+</body>
+
+</html>

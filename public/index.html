@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Google</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            text-align: center;
+            padding-top: 150px;
+        }
+
+        #logo {
+            width: 350px;
+        }
+
+        #searchForm {
+            margin-top: 25px;
+        }
+
+        #searchBox {
+            width: 60%;
+            height: 25px;
+            font-size: 16px;
+        }
+
+        #searchButton {
+            font-size: 14px;
+            margin-top: 10px;
+        }
+    </style>
+</head>
+
+<body>
+    <img id="logo" src="google.jpg" alt="Google logo">
+    <form id="searchForm">
+        <form action="/search.html" method="get">
+            <input type="text" id="searchBox" name="q">
+            <input type="submit" value="Search">
+          </form>
+        <br>
+        <input id="searchButton" type="submit" value="Google Search">
+        <input id="luckyButton" type="button" value="I'm Feeling Lucky">
+    </form>
+
+    <script>
+        document.getElementById('searchForm').addEventListener('submit', function (event) {
+            event.preventDefault();
+
+            const term = document.getElementById('searchBox').value;
+
+            window.location.href = `/search.html?q=${term}`;
+        });
+    </script>
+    <script>
+        document.getElementById('luckyButton').addEventListener('click', function (event) {
+            event.preventDefault();
+
+            const term = document.getElementById('searchBox').value;
+
+            fetch(`http://localhost:4000/search?q=${term}&numResults=1`)
+                .then(response => response.json())
+                .then(results => {
+                    if (results.length > 0) {
+                        window.location.href = results[0].url;
+                    } else {
+                        alert('No results found');
+                    }
+                })
+                .catch(error => console.error('Error:', error));
+        });
+    </script>
+</body>
+
+</html>
