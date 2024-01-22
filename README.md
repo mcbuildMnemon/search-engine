@@ -1,18 +1,19 @@
 # Google in 1998
 
-This project aims to recreate the look and feel of the Google search engine as it appeared in 1998. It provides a nostalgic experience for users who want to relive the early days of the internet.
+This project hosts the files for a search engine I was planning to do.
 
 ## Features
 
-- Retro design with the classic Google logo and interface.
-- Limited search functionality that mimics the capabilities of the original search engine.
+- Crawling
+- Indexing
+- Ranking system
 
 ## Installation
 
 To run this project locally, follow these steps:
 
-1. Clone the repository: `git clone https://github.com/nineby-nine/google-in-1998.git`
-2. Navigate to the project directory: `cd google-in-1998`
+1. Clone the repository: `git clone https://github.com/nineby-nine/search-engine.git`
+2. Navigate to the project directory: `cd search-engine`
 3. Install dependencies: `pnpm install`
 4. Start the express server: `node server.js`
 5. Start the indexer (change directory to `public/js`): `node server.js`
