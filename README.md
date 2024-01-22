@@ -15,7 +15,7 @@ To run this project locally, follow these steps:
 2. Navigate to the project directory: `cd google-in-1998`
 3. Install dependencies: `pnpm install`
 4. Start the express server: `node server.js`
-5. Start the indexer: `node server.js`
+5. Start the indexer (change directory to `public/js`): `node server.js`
 
 ## Crawling
 
