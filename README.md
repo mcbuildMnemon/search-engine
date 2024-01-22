@@ -6,7 +6,6 @@ This project aims to recreate the look and feel of the Google search engine as i
 
 - Retro design with the classic Google logo and interface.
 - Limited search functionality that mimics the capabilities of the original search engine.
-- Access to archived web pages from 1998.
 
 ## Installation
 
