@@ -8,7 +8,17 @@ A simple search engine with a crawler and indexer.
 - Indexing
 - Ranking system
 
+## Crawling
+
+In order to crawl a website, you must navigate to the public/js folder and run `node index.js https://example.com`
+
 ## Installation
+
+> [!IMPORTANT]
+> You should first crawl sites for some data so you can get the `crawldata.db` file. Then, run the site with the commands below.
+
+> [!WARNING]
+> Web services (Vercel, Netlify, Render, etc.) have not yet been tested.
 
 To run this project locally, follow these steps:
 
@@ -16,11 +26,7 @@ To run this project locally, follow these steps:
 2. Navigate to the project directory: `cd search-engine`
 3. Install dependencies: `pnpm install`
 4. Start the express server: `node server.js`
-5. Start the indexer (change directory to `public/js`): `node server.js`
-
-## Crawling
-
-In order to crawl, you must navigate to the public/js folder and run `node index.js https://example.com`
+5. On another terminal, start the indexer (change directory to `public/js`): `node server.js`
 
 ## Credits
 
