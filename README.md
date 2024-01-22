@@ -1,6 +1,6 @@
-# Google in 1998
+# search-engine
 
-This project hosts the files for a search engine I was planning to do.
+A simple search engine with a crawler and indexer.
 
 ## Features
 
