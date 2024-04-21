@@ -1,4 +1,8 @@
-# search-engine
+# search-engine - ARCHIVED
+
+THIS PROJECT IS ARCHIVED
+
+Explanation: This project was started as a simple project but it came with numerous vulnerabilities and simply decided not to maintain it anymore. The crawler was also getting pretty shitty and decided not to maintain that either. This project should theoretically still work, but like I said, I am no longer maintaining this.
 
 A simple search engine with a crawler and indexer.
 
